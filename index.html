@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satgas Kampus</title>
+
+  <meta property="og:title" content="Satgas ABA Sutopo">
+  <meta property="og:description" content="Layanan resmi pelaporan kekerasan, perundungan, dan diskriminasi di lingkungan kampus.">
+  <meta property="og:image" content="images/logo-satgas.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://satgas-abasutopo.github.io/satgas/">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+<!-- HEADER -->
+<header class="bg-red-600 text-white p-4 shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+
+    <!-- Logo + Judul -->
+    <div class="flex items-center space-x-3">
+      <img 
+        src="images/logo-satgas.png.png"
+        alt="Logo"
+        class="w-12 h-12 rounded-full object-cover bg-white"
+      />
+      <h1 class="text-xl md:text-2xl font-bold">SATGAS ABA SUTOPO</h1>
+    </div>
+
+    <!-- Tombol Menu Mobile -->
+    <button id="menuBtn" class="md:hidden text-white text-3xl">&#9776;</button>
+
+    <!-- NAVBAR -->
+    <nav id="mobileMenu" class="hidden md:block">
+      <ul class="flex flex-col md:flex-row md:space-x-6 text-center md:text-left">
+        <li><a href="#beranda" class="block py-2 hover:underline">Beranda</a></li>
+        <li><a href="#program" class="block py-2 hover:underline">Program</a></li>
+        <li><a href="#lapor" class="block py-2 hover:underline">Lapor</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- SCRIPT NAVBAR MOBILE -->
+<script>
+  document.getElementById("menuBtn").onclick = function () {
+    let menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
+  };
+</script>
+
+<!-- HERO -->
+<section id="beranda"
+  class="relative py-28 md:py-40 bg-cover bg-center text-white"
+  style="background-image: url('images/Satgas-ABAS.png.png');">
+
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <div class="relative container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-4">
+      Satuan Tugas Pencegahan Dan Penangan Kekerasan Di Lingkungan Perguruan Tinggi
+    </h2>
+
+    <p class="text-lg md:text-xl mb-6">
+      营造安全、包容、无暴力的校园环境.
+    </p>
+
+    <a href="#lapor"
+      class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700">
+      Ajukan Laporan
+    </a>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program" class="py-16 container mx-auto px-4">
+  <h3 class="text-3xl font-bold text-center mb-10">Program Utama 主要程序</h3>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    
+    <div class="bg-white shadow rounded-xl p-6">
+      <h4 class="text-xl font-bold mb-2">Pencegahan 预防</h4>
+      <p>Penyuluhan dan edukasi untuk mencegah kekerasan di lingkungan kampus.</p>
+    </div>
+
+    <div class="bg-white shadow rounded-xl p-6">
+      <h4 class="text-xl font-bold mb-2">Penanganan 处理</h4>
+      <p>Tim siap merespons laporan secara cepat, profesional, dan rahasia.</p>
+    </div>
+
+    <div class="bg-white shadow rounded-xl p-6">
+      <h4 class="text-xl font-bold mb-2">Pemulihan 恢复</h4>
+      <p>Dukungan konseling dan pendampingan bagi penyintas.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORM LAPOR -->
+<section id="lapor" class="py-16 bg-red-50">
+  <div class="container mx-auto px-4">
+
+    <h3 class="text-3xl font-bold text-center mb-8">Formulir Laporan 报表</h3>
+
+    <form action="https://formspree.io/f/mzznvyag" method="POST" autocomplete="off"
+      class="bg-white shadow-md rounded-xl p-8 max-w-xl mx-auto space-y-4">
+
+      <div>
+        <label class="block font-semibold">Nama Mahasiswa 学生姓名</label>
+        <input type="text" name="nama_mahasiswa" autocomplete="new-password"
+               class="w-full p-2 border rounded-lg" required />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Email / Kontak Mahasiswa 学生邮箱/联系方式</label>
+        <input type="email" name="email_mahasiswa" autocomplete="new-password"
+               class="w-full p-2 border rounded-lg" required />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Jenis Laporan 报告类型</label>
+        <select name="jenis_laporan" autocomplete="off" class="w-full p-2 border rounded-lg">
+          <option>Perundungan 欺凌</option>
+          <option>Kekerasan seksual 性暴力</option>
+          <option>Diskriminasi 歧视</option>
+          <option>Lainnya 其他</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Deskripsi Kejadian 暴力描述</label>
+        <textarea name="deskripsi" rows="5" autocomplete="new-password"
+          class="w-full p-2 border rounded-lg" required></textarea>
+      </div>
+
+      <p class="text-sm text-gray-600 bg-gray-100 p-3 rounded-lg">
+        Semua laporan bersifat rahasia. Identitas pelapor tidak akan dibagikan
+        kepada siapapun tanpa izin.
+      </p>
+
+      <button type="submit"
+        class="bg-red-600 text-white w-full p-3 rounded-lg hover:bg-red-700">
+        Kirim Laporan 提交报告
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-red-600 text-white p-6">
+  <div class="container mx-auto text-center px-4">
+    <p>Satgas ABA Sutopo — Siaga untuk Keamanan & Kenyamanan Mahasiswa Akademi</p>
+    <p>Email: abasutopo.satgas@gmail.com | Whatsapp: +62 853-5358-4250</p>
+  </div>
+</footer>
+
+<script>
+// Paksa Chrome tidak restore input form
+window.addEventListener("pageshow", function (event) {
+  const form = document.querySelector("form");
+  if (event.persisted) {
+    form.reset();
+    form.querySelectorAll("input, textarea").forEach(e => e.value = "");
+  }
+});
+
+// Reset saat halaman pertama dibuka
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+
+  // kosongkan isi field apapun yang tersisa
+  form.reset();
+  form.querySelectorAll("input, textarea").forEach(e => e.value = "");
+});
+
+// Reset lagi setelah submit (untuk berjaga-jaga)
+document.querySelector("form").addEventListener("submit", function () {
+  const form = this;
+  setTimeout(() => {
+    form.reset();
+    form.querySelectorAll("input, textarea").forEach(e => e.value = "");
+  }, 300);
+});
+</script>
+
+
+</body>
+</html>
