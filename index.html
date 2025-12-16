@@ -49,19 +49,20 @@
       </div>
 
       <!-- HAMBURGER MENU BUTTON -->
-      <button id="menuBtn" class="text-white text-3xl font-bold select-none">
-        ☰
-      </button>
+<button id="menuBtn" class="text-white text-3xl font-bold select-none">
+  ☰
+</button>
 
-      <!-- MENU DROPDOWN -->
-      <div id="menuDropdown"
-        class="hidden fixed right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+<!-- MENU DROPDOWN -->
+<div id="menuDropdown"
+  class="hidden fixed right-4 top-16 bg-white text-black
+         rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
 
-        <a href="#beranda" class="block hover:text-red-600" data-translate="menuBeranda">Beranda</a>
-        <a href="#program" class="block hover:text-red-600" data-translate="menuProgram">Program</a>
-        <a href="#lapor" class="block hover:text-red-600" data-translate="menuLapor">Lapor</a>
+  <a href="#beranda" class="menu-link block hover:text-red-600">Beranda</a>
+  <a href="#program" class="menu-link block hover:text-red-600">Program</a>
+  <a href="#lapor" class="menu-link block hover:text-red-600">Lapor</a>
 
-      </div>
+</div>
 
     </div>
   </div>
@@ -69,32 +70,27 @@
 
 <!-- JS UNTUK DROPDOWN -->
 <script>
-  // --- Hamburger Menu ---
   const menuBtn = document.getElementById("menuBtn");
   const menuDropdown = document.getElementById("menuDropdown");
+  const menuLinks = document.querySelectorAll(".menu-link");
 
-  menuBtn.addEventListener("click", () => {
+  // Toggle menu
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     menuDropdown.classList.toggle("hidden");
   });
 
-  // Tutup menu jika klik di luar
-  document.addEventListener("click", (e) => {
-    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+  // Klik link → menu langsung tutup
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
       menuDropdown.classList.add("hidden");
-    }
-  });
-
-    langMenu.querySelectorAll("img").forEach(img => {
-    img.addEventListener("click", () => {
-      langFlag.src = img.src;
-      langMenu.classList.add("hidden");
     });
   });
 
-  // Tutup lang menu jika klik di luar
+  // Klik di luar → menu tutup
   document.addEventListener("click", (e) => {
-    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
-      langMenu.classList.add("hidden");
+    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+      menuDropdown.classList.add("hidden");
     }
   });
 </script>
