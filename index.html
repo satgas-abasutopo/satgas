@@ -6,6 +6,8 @@
   <title>Satgas Kampus</title>
   <link rel="icon" type="image/png" href="favicon.png.png">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta property="og:title" content="Satgas ABA Sutopo">
   <meta property="og:description" content="Layanan resmi pelaporan kekerasan, perundungan, dan diskriminasi di lingkungan kampus.">
   <meta property="og:image" content="images/logo-satgas.png">
@@ -13,45 +15,88 @@
   <meta property="og:url" content="https://satgas-abasutopo.github.io/satgas/">
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="w-full overflow-x-hidden">
 
-<!-- HEADER -->
+<!-- NAVBAR -->
 <header class="fixed top-0 left-0 w-full z-50 bg-red-600 text-white px-4 py-3 shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
-    <!-- Logo + Judul -->
+    <!-- LOGO -->
     <div class="flex items-center space-x-3">
-      <img 
-        src="images/logo-satgas.png.png"
-        alt="Logo"
-        class="w-12 h-12 rounded-full object-cover bg-white"
-      />
-      <h1 class="text-xl md:text-2xl font-bold">SATGAS ABA SUTOPO</h1>
+      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full" alt="Logo">
+      <a href="index.html" class="text-xl md:text-2xl font-bold" data-translate="judulNavbar">
+    SATGAS ABA SUTOPO
+  </a>
     </div>
 
-    <!-- Tombol Menu Mobile -->
-    <button id="menuBtn" class="md:hidden text-white text-3xl">&#9776;</button>
+    <!-- RIGHT SIDE (LANG + MENU BUTTON) -->
+    <div class="flex items-center space-x-4">
+      </div>
 
-    <!-- NAVBAR -->
-    <nav id="mobileMenu" class="hidden md:block">
-      <ul class="flex flex-col md:flex-row md:space-x-6 text-center md:text-left">
-        <li><a href="#beranda" class="block py-2 hover:underline">Beranda</a></li>
-        <li><a href="#program" class="block py-2 hover:underline">Program</a></li>
-        <li><a href="#lapor" class="block py-2 hover:underline">Lapor</a></li>
-      </ul>
-    </nav>
+      <!-- HAMBURGER MENU BUTTON -->
+      <button id="menuBtn" class="text-white text-3xl font-bold select-none">
+        ☰
+      </button>
 
+      <!-- MENU DROPDOWN -->
+      <div id="menuDropdown"
+        class="hidden fixed right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+
+        <a href="#beranda" class="block hover:text-red-600" data-translate="menuBeranda">Beranda</a>
+        <a href="#program" class="block hover:text-red-600" data-translate="menuProgram">Program</a>
+        <a href="#lapor" class="block hover:text-red-600" data-translate="menuLapor">Lapor</a>
+
+      </div>
+
+    </div>
   </div>
 </header>
 
-<!-- SCRIPT NAVBAR MOBILE -->
+<!-- JS UNTUK DROPDOWN -->
 <script>
-  document.getElementById("menuBtn").onclick = function () {
-    let menu = document.getElementById("mobileMenu");
-    menu.classList.toggle("hidden");
-  };
+  // --- Hamburger Menu ---
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  menuBtn.addEventListener("click", () => {
+    menuDropdown.classList.toggle("hidden");
+  });
+
+  // Tutup menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+      menuDropdown.classList.add("hidden");
+    }
+  });
+
+    langMenu.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", () => {
+      langFlag.src = img.src;
+      langMenu.classList.add("hidden");
+    });
+  });
+
+  // Tutup lang menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+      langMenu.classList.add("hidden");
+    }
+  });
 </script>
 
 <main class="pt-20 bg-red-600">
