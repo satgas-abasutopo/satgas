@@ -18,7 +18,7 @@
 <body class="bg-gray-100 text-gray-900">
 
 <!-- HEADER -->
-<header class="bg-red-600 text-white p-4 shadow-md">
+<header class="fixed top-0 left-0 w-full z-50 bg-red-600 text-white px-4 py-3 shadow-md">
   <div class="container mx-auto flex justify-between items-center">
 
     <!-- Logo + Judul -->
@@ -54,6 +54,8 @@
   };
 </script>
 
+<main class="pt-20 bg-red-600">
+
 <!-- HERO -->
 <section id="beranda"
   class="relative py-28 md:py-40 bg-cover bg-center text-white"
@@ -71,29 +73,40 @@
     </p>
 
     <a href="#lapor"
-      class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700">
-      Ajukan Laporan
+      class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg mt-6 shadow-md
+             transform transition duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
+      <h3 class="text-xl font-bold" data-translate="ajukanlaporan">Ajukan Laporan 提交报告</h3>
     </a>
   </div>
 </section>
 
 <!-- PROGRAM -->
-<section id="program" class="py-16 container mx-auto px-4">
-  <h3 class="text-3xl font-bold text-center mb-10">Program Utama 主要程序</h3>
+<section id="program" class="bg-white py-16">
+  <div class="container mx-auto px-4">
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  <h3 class="text-3xl font-bold text-center mb-10 text-black">
+      Program Utama 主要程序
+    </h3>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     
-    <div class="bg-white shadow rounded-xl p-6">
+    <div class="bg-white rounded-2xl p-8
+                  shadow-lg hover:shadow-2xl
+                  transition duration-300 ease-in-out">
       <h4 class="text-xl font-bold mb-2">Pencegahan 预防</h4>
       <p>Penyuluhan dan edukasi untuk mencegah kekerasan di lingkungan kampus.</p>
     </div>
 
-    <div class="bg-white shadow rounded-xl p-6">
+    <div class="bg-white rounded-2xl p-8
+                  shadow-lg hover:shadow-2xl
+                  transition duration-300 ease-in-out">
       <h4 class="text-xl font-bold mb-2">Penanganan 处理</h4>
       <p>Tim siap merespons laporan secara cepat, profesional, dan rahasia.</p>
     </div>
 
-    <div class="bg-white shadow rounded-xl p-6">
+    <div class="bg-white rounded-2xl p-8
+                  shadow-lg hover:shadow-2xl
+                  transition duration-300 ease-in-out">
       <h4 class="text-xl font-bold mb-2">Pemulihan 恢复</h4>
       <p>Dukungan konseling dan pendampingan bagi penyintas.</p>
     </div>
@@ -189,8 +202,12 @@ document.querySelector("form").addEventListener("submit", function () {
 });
 </script>
 
+
 <!-- FLOATING SOCIAL MEDIA ICONS -->
-<div class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3">
+<div id="socialFloat"
+     class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3
+            opacity-0 translate-y-10 pointer-events-none
+            transition-all duration-500 ease-out">
 
   <!-- WHATSAPP -->
   <a href="https://api.whatsapp.com/send/?phone=6285353584250"
@@ -213,10 +230,41 @@ document.querySelector("form").addEventListener("submit", function () {
     <img src="icons/tiktok.png.png" class="w-8 h-8">
   </a>
 
-</div>
+<!-- SCRIPT ANIMASI SCROLL -->
+<script>
+  const socialFloat = document.getElementById("socialFloat");
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+
+    if (scrollTop > 30) {
+      // MUNCUL
+      socialFloat.classList.remove(
+        "opacity-0",
+        "translate-y-10",
+        "pointer-events-none"
+      );
+      socialFloat.classList.add(
+        "opacity-100",
+        "translate-y-0"
+      );
+    } else {
+      // HILANG SAAT BENAR-BENAR DI ATAS
+      socialFloat.classList.add(
+        "opacity-0",
+        "translate-y-10",
+        "pointer-events-none"
+      );
+      socialFloat.classList.remove(
+        "opacity-100",
+        "translate-y-0"
+      );
+    }
+  });
+</script>
+
+
+</main>
 
 </body>
 </html>
-
-
-
